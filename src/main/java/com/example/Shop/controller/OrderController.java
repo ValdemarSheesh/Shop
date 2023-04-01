@@ -35,16 +35,14 @@ public class OrderController {
     }
 
     @PutMapping
-    public ResponseEntity<?> updateOrder(@RequestParam(value = "id") Long id,
-                                               @Validated @RequestBody OrderDto orderDto,
-                                               BindingResult bindingResult) {
+    public ResponseEntity<?> updateOrder(@Validated @RequestBody OrderDto orderDto,
+                                         BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             throw new InvalidValueException(InvalidValueException.createMessage(bindingResult));
         }
 
         Order order = OrderMapper.INSTANCE.orderDtoToOrder(orderDto);
-        order.setId(id);
 
         return ResponseEntity.ok(OrderMapper.INSTANCE.orderToOrderDto(orderService.editOrder(order)));
     }
