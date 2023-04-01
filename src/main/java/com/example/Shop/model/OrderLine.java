@@ -24,7 +24,7 @@ public class OrderLine {
     @JoinColumn(name = "order_id")
     private Order order;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.MERGE)
     private List<Goods> goodsList;
 
     private double count;

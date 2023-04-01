@@ -1,6 +1,7 @@
 package com.example.Shop.service.impl;
 
 import com.example.Shop.exceptions.NotFoundException;
+import com.example.Shop.model.Goods;
 import com.example.Shop.model.OrderLine;
 import com.example.Shop.repo.OrderLineRepository;
 import com.example.Shop.service.OrderLineService;
@@ -17,6 +18,7 @@ public class OrderLineServiceImpl implements OrderLineService {
 
     @Override
     public OrderLine addOrderLine(OrderLine orderLine) {
+        orderLine.setCount(orderLine.getGoodsList().stream().map(Goods::getPrice).mapToDouble(Double::doubleValue).sum());
         return orderLineRepository.saveAndFlush(orderLine);
     }
 
@@ -33,6 +35,7 @@ public class OrderLineServiceImpl implements OrderLineService {
     @Override
     public OrderLine editOrderLine(OrderLine orderLine) {
         getOrderLineById(orderLine.getId());
+        orderLine.setCount(orderLine.getGoodsList().stream().map(Goods::getPrice).mapToDouble(Double::doubleValue).sum());
         return orderLineRepository.saveAndFlush(orderLine);
     }
 

@@ -14,7 +14,7 @@ public interface OrderLineMapper {
 
     OrderLineDto orderLineToOrderLineDto(OrderLine orderLine);
 
-    OrderLineDto orderLineDtoToOrderLine(OrderLineDto orderLineDto);
+    OrderLine orderLineDtoToOrderLine(OrderLineDto orderLineDto);
 
     List<OrderLineDto> orderLineListToOrderLineDtoList(List<OrderLine> orderLineList);
 }
