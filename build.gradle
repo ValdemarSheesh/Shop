@@ -1,0 +1,43 @@
+plugins {
+	id 'java'
+	id 'war'
+	id 'org.springframework.boot' version '2.7.10'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	springBootStarterWebVersion = "2.7.10"
+	springBootStarterDataJpa = "2.7.10"
+	springBootStarterValidation = "2.7.10"
+	springBootStarterTomcat = "2.7.10"
+	springBootStarterTest = "2.7.10"
+	mapstructVersion = "1.5.3.Final"
+	lombokVersion = "1.18.26"
+	h2Version = "2.1.214"
+}
+
+dependencies {
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: "${springBootStarterWebVersion}"
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version: "${springBootStarterTomcat}"
+	testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: "${springBootStarterTest}"
+	compileOnly group: 'org.projectlombok', name: 'lombok', version: "${lombokVersion}"
+	implementation group: 'com.h2database', name: 'h2', version: "${h2Version}"
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: "${springBootStarterDataJpa}"
+	implementation group: 'org.mapstruct', name: 'mapstruct', version: "${mapstructVersion}"
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: "${springBootStarterValidation}"
+
+	annotationProcessor "org.projectlombok:lombok:${lombokVersion}", "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
