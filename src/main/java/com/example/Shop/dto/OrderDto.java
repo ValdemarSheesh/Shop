@@ -1,10 +1,10 @@
 package com.example.Shop.dto;
 
+import com.example.Shop.validation.ValidDate;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
@@ -21,9 +21,13 @@ public class OrderDto {
     private String client;
 
     @NotBlank
-    @DateTimeFormat(pattern = "dd.MM.yyyy")
-    private LocalDate date;
+    @ValidDate
+    private String date;
 
     @NotBlank
     private String address;
+
+    public LocalDate getDate() {
+        return LocalDate.parse(date);
+    }
 }
