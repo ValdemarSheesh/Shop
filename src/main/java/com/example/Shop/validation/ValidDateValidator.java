@@ -11,6 +11,7 @@ import java.util.Date;
 public class ValidDateValidator implements ConstraintValidator<ValidDate, String> {
 
     private Boolean isOptional;
+
     @Override
     public void initialize(ValidDate validDate) {
         this.isOptional = validDate.optional();
@@ -27,7 +28,7 @@ public class ValidDateValidator implements ConstraintValidator<ValidDate, String
         Date date = null;
         try {
             SimpleDateFormat sdf = new SimpleDateFormat(format);
-            if (value != null){
+            if (value != null) {
                 date = sdf.parse(value);
                 if (!value.equals(sdf.format(date))) {
                     date = null;

@@ -6,7 +6,7 @@ import org.springframework.validation.FieldError;
 import java.util.HashMap;
 import java.util.Map;
 
-public class InvalidValueException extends RuntimeException{
+public class InvalidValueException extends RuntimeException {
 
     public InvalidValueException(String message) {
         super(message);
