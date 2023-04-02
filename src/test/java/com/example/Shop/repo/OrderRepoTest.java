@@ -2,11 +2,9 @@ package com.example.Shop.repo;
 
 import com.example.Shop.ShopApplication;
 import com.example.Shop.model.Order;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.transaction.Transactional;
 import java.time.LocalDate;
@@ -15,7 +13,6 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-@RunWith(SpringRunner.class)
 @Transactional
 @SpringBootTest(classes = ShopApplication.class)
 public class OrderRepoTest {
