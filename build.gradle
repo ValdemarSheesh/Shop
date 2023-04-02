@@ -22,6 +22,8 @@ ext {
 	mapstructVersion = "1.5.3.Final"
 	lombokVersion = "1.18.26"
 	h2Version = "2.1.214"
+	guava = "12.0"
+	junitJupiterApi = "5.9.2"
 }
 
 dependencies {
@@ -33,8 +35,8 @@ dependencies {
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: "${springBootStarterDataJpa}"
 	implementation group: 'org.mapstruct', name: 'mapstruct', version: "${mapstructVersion}"
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: "${springBootStarterValidation}"
-	implementation group: 'com.google.guava', name: 'guava', version: '12.0'
-	testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.9.2'
+	implementation group: 'com.google.guava', name: 'guava', version: "${guava}"
+	testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: "${junitJupiterApi}"
 
 	annotationProcessor "org.projectlombok:lombok:${lombokVersion}", "org.mapstruct:mapstruct-processor:${mapstructVersion}"
 
