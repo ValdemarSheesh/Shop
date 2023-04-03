@@ -1,9 +1,6 @@
 package com.example.Shop.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -12,6 +9,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Setter
 @Getter
+@Builder
 @Entity(name = "orders")
 public class Order {
     @Id
@@ -25,4 +23,8 @@ public class Order {
 
     private String address;
 
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 }
