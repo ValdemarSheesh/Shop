@@ -52,7 +52,7 @@ public class GoodsServiceTest {
     @Test
     public void getAllGoodsTest() {
         Goods goods1 = goods.builder()
-                .id(1L)
+                .id(2L)
                 .name("goodsName")
                 .price(99.99)
                 .build();

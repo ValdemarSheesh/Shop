@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Transactional
 @SpringBootTest(classes = ShopApplication.class)
-public class OrderLineTest {
+public class OrderLineRepoTest {
 
     @Autowired
     private OrderLineRepository orderLineRepository;
@@ -27,7 +27,7 @@ public class OrderLineTest {
     private GoodsRepository goodsRepository;
 
     @Test
-    public void testFindById() {
+    public void findByIdTest() {
         OrderLine orderLine = getOrderLine();
         orderLineRepository.saveAndFlush(orderLine);
         OrderLine result = orderLineRepository.findById(orderLine.getId()).get();
@@ -35,7 +35,7 @@ public class OrderLineTest {
     }
 
     @Test
-    public void testSaveAndFlush() {
+    public void saveAndFlushTest() {
         OrderLine orderLine = getOrderLine();
         orderLineRepository.saveAndFlush(orderLine);
         OrderLine found = orderLineRepository.findById(orderLine.getId()).get();
@@ -43,7 +43,7 @@ public class OrderLineTest {
     }
 
     @Test
-    public void testDeleteById() {
+    public void deleteByIdTest() {
         OrderLine orderLine = getOrderLine();
         orderLineRepository.saveAndFlush(orderLine);
         orderLineRepository.delete(orderLine);
@@ -52,7 +52,7 @@ public class OrderLineTest {
     }
 
     @Test
-    public void testFindAll() {
+    public void findAllTest() {
         OrderLine orderLine = getOrderLine();
         orderLineRepository.saveAndFlush(orderLine);
         List<OrderLine> result = orderLineRepository.findAll();

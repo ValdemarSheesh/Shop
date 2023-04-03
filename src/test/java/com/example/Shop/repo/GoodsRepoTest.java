@@ -19,7 +19,7 @@ public class GoodsRepoTest {
     private GoodsRepository goodsRepository;
 
     @Test
-    public void testFindById() {
+    public void findByIdTest() {
         Goods goods = getGoods();
         goodsRepository.saveAndFlush(goods);
         Goods result = goodsRepository.findById(goods.getId()).get();
@@ -27,7 +27,7 @@ public class GoodsRepoTest {
     }
 
     @Test
-    public void testSaveAndFlush() {
+    public void saveAndFlushTest() {
         Goods goods = getGoods();
         goodsRepository.saveAndFlush(goods);
         Goods found = goodsRepository.findById(goods.getId()).get();
@@ -35,7 +35,7 @@ public class GoodsRepoTest {
     }
 
     @Test
-    public void testDeleteById() {
+    public void deleteByIdTest() {
         Goods goods = getGoods();
         goodsRepository.saveAndFlush(goods);
         goodsRepository.delete(goods);
@@ -44,7 +44,7 @@ public class GoodsRepoTest {
     }
 
     @Test
-    public void testFindAll() {
+    public void findAllTest() {
         Goods goods = getGoods();
         goodsRepository.saveAndFlush(goods);
         List<Goods> result = goodsRepository.findAll();

@@ -24,6 +24,8 @@ ext {
 	h2Version = "2.1.214"
 	guava = "12.0"
 	junitJupiterApi = "5.9.2"
+	mockitoJunitJupiter = "5.2.0"
+	assertjCore = "3.24.2"
 }
 
 dependencies {
@@ -37,6 +39,9 @@ dependencies {
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: "${springBootStarterValidation}"
 	implementation group: 'com.google.guava', name: 'guava', version: "${guava}"
 	testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: "${junitJupiterApi}"
+	testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: "${mockitoJunitJupiter}"
+	testImplementation group: 'org.assertj', name: 'assertj-core', version: "${assertjCore}"
+
 
 	annotationProcessor "org.projectlombok:lombok:${lombokVersion}", "org.mapstruct:mapstruct-processor:${mapstructVersion}"
 

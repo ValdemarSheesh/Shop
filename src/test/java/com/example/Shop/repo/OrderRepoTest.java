@@ -21,7 +21,7 @@ public class OrderRepoTest {
     private OrderRepository orderRepository;
 
     @Test
-    public void testFindById() {
+    public void findByIdTest() {
         Order order = getOrder();
         orderRepository.saveAndFlush(order);
         Order result = orderRepository.findById(order.getId()).get();
@@ -29,7 +29,7 @@ public class OrderRepoTest {
     }
 
     @Test
-    public void testSaveAndFlush() {
+    public void saveAndFlushTest() {
         Order order = getOrder();
         orderRepository.saveAndFlush(order);
         Order found = orderRepository.findById(order.getId()).get();
@@ -37,7 +37,7 @@ public class OrderRepoTest {
     }
 
     @Test
-    public void testDeleteById() {
+    public void deleteByIdTest() {
         Order order = getOrder();
         orderRepository.saveAndFlush(order);
         orderRepository.delete(order);
@@ -46,7 +46,7 @@ public class OrderRepoTest {
     }
 
     @Test
-    public void testFindAll() {
+    public void findAllTest() {
         Order order = getOrder();
         orderRepository.saveAndFlush(order);
         List<Order> result = orderRepository.findAll();

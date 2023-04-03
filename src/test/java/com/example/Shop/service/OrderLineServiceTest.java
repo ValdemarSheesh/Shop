@@ -1,29 +1,22 @@
 package com.example.Shop.service;
 
-import com.example.Shop.model.Goods;
-import com.example.Shop.model.Order;
 import com.example.Shop.model.OrderLine;
-import com.example.Shop.repo.GoodsRepository;
 import com.example.Shop.repo.OrderLineRepository;
-import com.example.Shop.repo.OrderRepository;
-import com.example.Shop.service.impl.GoodsServiceImpl;
 import com.example.Shop.service.impl.OrderLineServiceImpl;
-import com.example.Shop.service.impl.OrderServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.BDDMockito.*;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.willDoNothing;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -58,7 +51,7 @@ public class OrderLineServiceTest {
     @Test
     public void getAllLineOrderTest() {
         OrderLine orderLine1 = orderLine.builder()
-                .id(1L)
+                .id(2L)
                 .goodsList(Collections.emptyList())
                 .build();
 
@@ -72,11 +65,6 @@ public class OrderLineServiceTest {
 
     @Test
     public void getAllLineOrderTestWithEmptyList() {
-        OrderLine orderLine1 = orderLine.builder()
-                .id(1L)
-                .goodsList(Collections.emptyList())
-                .build();
-
         given(orderLineRepository.findAll()).willReturn(Collections.emptyList());
 
         List<OrderLine> orderLineList = orderLineService.getAllOrderLine();
