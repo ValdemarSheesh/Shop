@@ -6,9 +6,10 @@
 - Spring Boot 2.0
 - Spring Data JPA
 - база данных H2
-- контейнер сервлетов Tomcat, Jetty
+- контейнер сервлетов Tomcat
 - Junit
 - Mockito
+- Mapstruct
 
 ## Описание 
 Сделать 3 сущности «Заказ» (Order), «Строка Заказа» (OrderLine) и «Товар» (Goods) которые сохраняются в базу данных. 
